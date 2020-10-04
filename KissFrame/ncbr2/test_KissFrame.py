@@ -43,12 +43,3 @@ class NCBR2_TestFunctions(unittest.TestCase):
       assert u16ToBig(65536) == "U16_SIZE_ERROR"
 
       assert u32ToBig(4294967296) == "U32_SIZE_ERROR"
-  # 2nd class : Kiss frame
-  def test2_kiss(self):
-      # Valid cases
-      assert kiss_detect("c000c0")
-      assert kiss_send("abcd") == "c000abcdc0"
-      assert kiss_escape("c0dbdcdd") == "dbdcdbdbdddd"
-      assert kiss_send(kiss_escape("c0dbdcdd")) == "c000dbdcdbdbddddc0"
-      assert kiss_unescape("c000dbdcdbdbddddc0") ==  "c000c0dbdcddc0"
-      assert kiss_receive(kiss_unescape("c000dbdcdbdbddddc0")) == "c0dbdcdd"
