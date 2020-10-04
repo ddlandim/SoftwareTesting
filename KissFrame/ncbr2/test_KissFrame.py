@@ -1,5 +1,5 @@
 import unittest
-import KissFrame
+from KissFrame import *
 class NCBR2_TestFunctions(unittest.TestCase):
   
   def test_utilfunctions(self):
